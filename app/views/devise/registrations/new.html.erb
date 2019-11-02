@@ -21,6 +21,13 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label :is_host, "Host", :value => true %>
+    <%= f.radio_button :is_host, true %>
+    <%= f.label :is_host, "Guest", :value => false %>
+    <%= f.radio_button :is_host, false, required: "required" %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
