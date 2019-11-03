@@ -1,5 +1,6 @@
-<%= @listing.title %>
-<%= @listing.description %>
+<p><%= @listing.title %></p>
+<p><%= @listing.description %></p>
 
 <%= link_to 'All listings', listings_path %>
 <%= render 'listings/shared', listing: @listing %>
+

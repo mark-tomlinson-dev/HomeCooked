@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'bookings/index'
-  get 'bookings/show'
-  get 'bookings/new'
-  get 'bookings/edit'
   devise_for :users
   get "/", to: "pages#index", as: "root"
   
@@ -11,7 +7,8 @@ Rails.application.routes.draw do
   resources :profiles
   # Listings routes
   resources :listings
- 
+  # Bookings routes
+  resources :bookings
  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
