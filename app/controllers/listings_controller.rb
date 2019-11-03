@@ -12,17 +12,33 @@ class ListingsController < ApplicationController
     @listing = Listing.new
   end
 
+  def edit   
+  end
 
+
+  # Create new listing and redirect to that specific listing
   def create
     @listing = current_user.listings.build(listing_params)
     if @listing.save
-      flash[:success] = "Listing created!"
-      redirect_to root_url
+      redirect_to @listing, notice: "Event created successfully!"
     else
-      redirect_to root_url
+      render :new 
     end
   end
 
+  def update
+    if @listing.update(listing_params)
+      redirect_to @listing, notice: "Event was successfully updated!"
+    else
+      render :edit, alert: "Your event wasn't updated"
+    end 
+  end 
+
+  def destroy
+    @listing.destroy
+
+    redirect_to listings_path, notice: "Your event was deleted"
+  end 
 
   private
 

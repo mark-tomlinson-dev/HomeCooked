@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'listings/index'
-  get 'listings/show'
-  get 'listings/new'
-  get 'listings/create'
+
   devise_for :users
   get "/", to: "pages#index", as: "root"
   
