@@ -1,22 +1,2 @@
 
-<% if current_user %>
-
-<p><%= "Hello #{current_user.email}" %></p>
-
-	<%= link_to 'Sign out', destroy_user_session_path, method: :delete %></br>
-		
-	<%= link_to 'Create profile', new_profile_path %></br>
-
-	<%= link_to 'View profiles', profiles_path %></br>
-
-	<%= link_to 'Create listing', new_listing_path %></br>
-
-	<%= link_to 'View listings', listings_path %></br>
-
-<% else %>
-	<%= link_to 'Sign up', new_user_registration_path %></br>
-
-	<%= link_to 'Sign in', new_user_session_path %>
-
-<% end %>
 
