@@ -1,36 +1,42 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<div class="w-full max-w-md mx-auto my-8">
+  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+      <div class="mb-6">
+        <%= f.label :email, class:"label block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.email_field :email, autocomplete: "email", class:"input appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :is_host, "Host", :value => true %>
-    <%= f.radio_button :is_host, true %>
-    <%= f.label :is_host, "Guest", :value => false %>
-    <%= f.radio_button :is_host, false, required: "required" %>
-  </div>
+      <div class="mb-6">
+        <div class="flex">
+          <%= f.label :password, class: "label block text-gray-700 text-sm font-bold mb-2" %>
+          <% if @minimum_password_length %>
+          <span class="text-xs pl-1 text-grey-dark"><em>(<%= @minimum_password_length %> characters minimum)</em></span>
+          <% end %>
+        </div>
+        <%= f.password_field :password, autocomplete: "new-password", class: "input appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight" %>
+      </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+      <div class="mb-6">
+        <%= f.label :password_confirmation, class:"label block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight" %>
+      </div>
 
-<%= render "devise/shared/links" %>
+      <div class="mb-6">
+        <%= f.label :is_host, "Host", :value => true, class: "label inline text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.radio_button :is_host, true %>
+        <span class="ml-4"><%= f.label :is_host, "Guest", :value => false, class: "label inline text-gray-700 text-sm font-bold mb-2" %></span>
+        <%= f.radio_button :is_host, false, required: "required" %>
+      </div>
+
+      <div class="mb-6">
+        <%= f.submit "Sign up", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      </div>
+
+    <% end %>
+  </form>
+</div>
