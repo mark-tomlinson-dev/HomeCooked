@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2019-11-03 17:43:49
+  is_paid: false
+  user: one
+  listing: one
+
+two:
+  date: 2019-11-03 17:43:49
+  is_paid: false
+  user: two
+  listing: two
