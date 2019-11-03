@@ -2,7 +2,8 @@
 
 	<%= listing.title %>
 	<%= link_to "Show", listing %>
-	<%= link_to "Edit", edit_listing_path(listing) %>
-	<%= link_to "Destroy", listing, method: :delete %>
+	
+	<%# Render _shared partial%>
+	<%= render 'listings/shared', listing: listing %>
 
 <% end %>
