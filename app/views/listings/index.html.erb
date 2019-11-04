@@ -1,9 +1,20 @@
-<% @listings.each do |listing| %>
+<div class="container mx-auto">
 
-<p><%= listing.title %><p>
-	<%= link_to "Show", listing %>
-	
-	<%# Render _shared partial%>
-	<%= render 'listings/shared', listing: listing %>
+	<div class="flex flex-wrap overflow-hidden lg:-mx-2">
+	<% @listings.each do |listing| %>
+		<div class="w-full overlow-hidden bg-white max-w-sm rounded shadow-lg lg:my-1 lg:px-2 lg:w-1/4">
+			<%# image_tag listing.picture if listing.picture.attached? %>
+			<div class="font-bold text-xl mb-2"><%= listing.title %></div>
+			<p class="text-gray-700 text-base"><%= listing.description %>
+			</p>
+			<p class="text-gray-700 text-base"><%= listing.date.strftime("%d/%m/%Y") %>
+			</p>
+			<p class="text-gray-700 text-base"><%= listing.max_guests %>
+			</p>
+			<p class="text-gray-700 text-base"><%= listing.price %>
+			</p>
+		</div>
+	<% end %>
+	</div>
 
-<% end %>
+<div>

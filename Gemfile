@@ -65,3 +65,4 @@ gem "devise", "~> 4.7"
 
 gem 'webpacker', '~> 4.0.0'
 gem 'tailwindcss', '~> 1.0.0'
+gem "aws-sdk-s3", "~> 1.53"

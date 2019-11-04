@@ -1,7 +1,8 @@
 class ProfilesController < ApplicationController
+   # Authentication not required for browsing profiles
+  before_action :authenticate_user!, except: [:index]
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
-  # Authentication not required for browsing profiles
-  before_action :authenticate_user!, except: [:show, :index]
+ 
 
   
   def index
@@ -9,9 +10,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    if current_user.profile != @profile
-      redirect_to root_path
-    end
+    @profile = current_user.profile
   end
 
   def new
