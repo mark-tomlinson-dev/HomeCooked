@@ -1,5 +1,8 @@
 <p><%= @listing.title %></p>
 <p><%= @listing.description %></p>
+<div>
+<%= image_tag @listing.picture if @listing.picture.attached? %>
+</div>
 
 <%= link_to 'All listings', listings_path %>
 <%= render 'listings/shared', listing: @listing %>

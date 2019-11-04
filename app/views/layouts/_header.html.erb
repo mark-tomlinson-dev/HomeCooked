@@ -10,13 +10,14 @@
   </div>
   <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
     <div class="text-sm lg:flex-grow block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-      <% if user_signed_in? %>
-				<%= "Hello #{current_user.email}" %>
-				<%= link_to "Log out", destroy_user_session_path, method: :delete %>
-				<%= link_to 'View profile', profiles_path %>
+      <% if current_user %>
+				<a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"><%= "Hello #{current_user.email}" %></a>
+				<a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"><%= link_to "Log out", destroy_user_session_path, method: :delete %></a>
+				<a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"><%= link_to "Profile", profiles_path(current_user) %></a>
 			<% else %>
-				<%= link_to "Log in", new_user_session_path %>
-				<%= link_to "Sign up", new_user_registration_path, class:"inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0" %>
+			  <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"><%= link_to "Log in", new_user_session_path %></a>
+        <a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"><%= link_to "Log out", destroy_user_session_path, method: :delete %></a>
+				<a class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"><%= link_to "Sign up", new_user_registration_path, class:"inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0" %></a>
 			<% end %>
     </div>
   </div>

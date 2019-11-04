@@ -2,12 +2,16 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
   # Authentication not required for browsing profiles
   before_action :authenticate_user!, except: [:show, :index]
+
   
   def index
     @profiles = Profile.all
   end
 
   def show
+    if current_user.profile != @profile
+      redirect_to root_path
+    end
   end
 
   def new
@@ -25,6 +29,11 @@ class ProfilesController < ApplicationController
   end
 
   def update
+    if @profile.update(profile_params)
+      redirect_to @profile, notice: "Event was successfully updated!"
+    else
+      render :edit, alert: "Your event wasn't updated"
+    end 
   end
 
   def destroy
