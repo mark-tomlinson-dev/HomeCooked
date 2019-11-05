@@ -11,11 +11,12 @@
     <% end %>
 
     <div class="mb-6">
-      <%= "$#{@booking.listing.price} total" %>
+      <%= "$#{@listing.price} total" %>
     </div>
     <div class="mb-6">
-			<%= @booking.listing.date.strftime("%d/%m/%Y") %>
+			<%= @listing.date.strftime("%d/%m/%Y") %>
     </div>
+    <%= form.hidden_field(:listing_id, value: @listing.id) %>
     <div class="mb-6">
       <%= form.label :number_of_guests, class: "label block text-gray-700 text-sm font-bold" %></br>
       <%= form.text_area :number_of_guests, class:"input appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight" %>

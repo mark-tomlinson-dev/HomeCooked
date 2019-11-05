@@ -1,20 +1,30 @@
-<div class="container mx-auto">
 
-	<div class="flex flex-wrap overflow-hidden lg:-mx-2">
-	<% @listings.each do |listing| %>
-		<div class="w-full overlow-hidden bg-white max-w-sm rounded shadow-lg lg:my-1 lg:px-2 lg:w-1/4">
-			<%# image_tag listing.picture if listing.picture.attached? %>
-			<div class="font-bold text-xl mb-2"><%= listing.title %></div>
-			<p class="text-gray-700 text-base"><%= listing.description %>
-			</p>
-			<p class="text-gray-700 text-base"><%= listing.date %>
-			</p>
-			<p class="text-gray-700 text-base"><%= listing.max_guests %>
-			</p>
-			<p class="text-gray-700 text-base"><%= listing.price %>
-			</p>
+<div class="bg-gray-200">
+
+	<div class="max-w-md mt-24  sm:max-w-xl lg:max-w-6xl mx-auto px-8 lg:px-12 py-8">
+
+		
+		<% @listings.each do |listing| %>
+		<%# INDIVIDUAL CARD WRAPPER/CONTAINER%>
+		<div class="flex flex-wrap -mx-4">
+			<%# THE CARD ITSELF %>
+			
+			<div class="mt-6 w-full px-4 lg:w-1/2 xl:w-1/3">
+				<div class="flex items-center rounded-lg bg-white shadow-lg overflow-hidden">
+					<img class="h-32 w-32 flex-shrink-0 object-cover" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="description">
+					<h2 class="text-xl text-gray-900"><%= listing.title %></h2>
+					<p class="text-gray-600"><%= listing.description %></p>
+					<div class="px-6 py-4">
+						<h3 class="text-lg font-semibold text-gray-800"><%= listing.date %></h3>
+						<p class="text-gray-600"><%= "#{listing.max_guests} seats left at the table" %></p>
+						<div class="mt-4">
+							<a href="#" class="text-indigo-500 hover:text-indigo-400 font-semibold text-sm"><%= listing.price %></a>
+						</div>
+					</div>
+				</div>
+			
+			</div>
 		</div>
-	<% end %>
+		<% end %>
 	</div>
-
-<div>
+</div>

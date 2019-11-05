@@ -10,49 +10,32 @@
       </div>
     <% end %>
 
+    <div class="mb-6">
+      <%= form.label :title, class: "label block text-gray-700 text-sm font-bold" %></br>
+      <%= form.text_field :title, class:"input appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight" %>
+    </div>
+    <div class="mb-6">
+      <%= form.label :description, class: "label block text-gray-700 text-sm font-bold" %></br>
+      <%= form.text_area :description, class:"input appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight" %>
+    </div>
+    <div class="mb-6">
+      <%= form.label :date, class: "label block text-gray-700 text-sm font-bold" %></br>
+     <span><%= form.datetime_select :date, class:"input appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight" %></span>
+    </div>
+    <div class="mb-6">
+      <%= form.label :max_guests, class: "label block text-gray-700 text-sm font-bold" %></br>
+      <%= form.text_field :max_guests, class:"input appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight" %>
+    </div>
+    <div class="mb-6">
+      <%= form.label :price, class: "label block text-gray-700 text-sm font-bold" %></br>
+      <%= form.text_area :price, class:"input appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight" %>
+    </div>
+    <div class="mb-6">
+      <%= form.label :picture, class: "label block text-gray-700 text-sm font-bold" %></br>
+      <%= form.file_field :picture, accept: "image/png,image/gif,image/jpg,image/jpeg", class:"input appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight" %>
+    </div>
 
- <div class="field">
-    <%= form.label :title %></br>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %></br>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date %></br>
-    <%= form.datetime_select :date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :max_guests %></br>
-    <%= form.number_field :max_guests %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %></br>
-    <%= form.text_field :price %>
-  </div>
-
-  <div>
-    <%= form.label :picture%>
-    <%= form.file_field :picture, accept: "image/png,image/gif,image/jpg,image/jpeg"%>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<%= link_to 'Home', root_path %>
-
-<% if current_user %>
-<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-<% else %>
-<%= link_to 'Sign up', new_user_registration_path %>
-
-<%= link_to 'Sign in', new_user_session_path %>
-
-<% end %>
+    <div class="mb-6"></br>
+      <%= form.submit "Create listing", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+    </div>
+  <% end %>

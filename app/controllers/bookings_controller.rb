@@ -1,20 +1,21 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
   
   def index
-    @bookings = Booking.all
+    @bookings = current_user.bookings.all
   end
 
   def show
   end
 
   def new
-    @booking = Booking.new
+    @listing = Listing.find(params[:listing])
+    @booking = @listing.bookings.new(user: current_user)
   end
 
   def edit   
   end
-
 
   # Create new booking and redirect to that specific booking
   def create
@@ -47,6 +48,6 @@ class BookingsController < ApplicationController
   end 
 
   def booking_params
-    params.require(:booking).permit(:user_id, :listing_id, :date, :is_paid)
+    params.require(:booking).permit(:user_id, :listing_id, :is_paid, :number_of_guests)
   end
 end
