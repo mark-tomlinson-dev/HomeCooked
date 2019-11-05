@@ -1,0 +1,27 @@
+  <%= form_with(model: @booking, local: true) do |form| %>
+    <% if booking.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+        <ul>
+        <% booking.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-6">
+      <%= "$#{@booking.listing.price} total" %>
+    </div>
+    <div class="mb-6">
+			<%= @booking.listing.date.strftime("%d/%m/%Y") %>
+    </div>
+    <div class="mb-6">
+      <%= form.label :number_of_guests, class: "label block text-gray-700 text-sm font-bold" %></br>
+      <%= form.text_area :number_of_guests, class:"input appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight" %>
+    </div>
+
+    <div class="mb-6">
+      <%= form.submit "Create booking", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+    </div>
+  <% end %>
