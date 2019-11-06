@@ -14,7 +14,7 @@
       <%= "$#{@listing.price} total" %>
     </div>
     <div class="mb-6">
-			<%= @listing.date.strftime("%d/%m/%Y") %>
+			<%= @listing.date %>
     </div>
     <%= form.hidden_field(:listing_id, value: @listing.id) %>
     <div class="mb-6">
