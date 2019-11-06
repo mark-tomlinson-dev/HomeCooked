@@ -7,7 +7,28 @@ class BookingsController < ApplicationController
   end
 
   def show
-  end
+    session = Stripe::Checkout::Session.create(
+        payment_method_types: ['card'],
+        customer_email: current_user.email,
+        line_items: [{
+            name: @booking.listing.title,
+            description: @booking.listing.description,
+            amount: @booking.listing.price * 100,
+            currency: 'aud',
+            quantity: 1,
+        }],
+        payment_intent_data: {
+            metadata: {
+                user_id: current_user.id,
+                booking_id: @booking.id
+            }
+        },
+        success_url: "#{root_url}payments/success?userId=#{current_user.id}&bookingId=#{@booking.id}",
+        cancel_url: "#{root_url}bookings"
+    )
+
+    @session_id = session.id
+end
 
   def new
     @listing = Listing.find(params[:listing])
