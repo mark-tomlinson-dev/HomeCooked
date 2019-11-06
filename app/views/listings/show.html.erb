@@ -1,37 +1,30 @@
-<div class="bg-gray-100 flex">
-	<%# THIS IS THE WRAPPER/CONTAINER FOR LEFT-HAND CONTENT %>
-	<div class="px-8 py-12 max-w-md mx-auto sm:max-w-xl lg:max-w-full lg:w-1/2 lg:py-24 lg:px-12">
-		<%# THIS DIV IS FOR CONSTRAINING THE LEFT-HAND CONTENT ON EXTRA LARGE SCREENS%>
-		<div class="xl:max-w-lg"> 
-			<img class= "mt-6 rounded-lg shadow-xl sm:mt-8 sm:h-64 sm:w-full sm:object-cover sm:object-center lg:hidden" src="https://images.unsplash.com/photo-1544818694-bfc4b9d5d644?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"alt="Detailed image description would go here.">
-			<p class="mt-6 text-gray-600 text-xs uppercase font-semibold tracking-wide "><%= "#{@listing.max_guests} seats still available" %></p>
-			<h1 class="font-semibold text-4xl"><%= @listing.title %></h1>
-			<p><%= @listing.description %></p>
-			<p><%= "$#{@listing.price}" %>
+<div class="bg-gray-100">
+	<div class="bg-gray-100 flex">
+		<%# THIS IS THE WRAPPER/CONTAINER FOR LEFT-HAND CONTENT %>
+		<div class="px-8 py-12 max-w-md mx-auto sm:max-w-xl lg:max-w-full lg:mx-8 lg:w-1/2 lg:py-24 lg:px-12">
+			<%# THIS DIV IS FOR CONSTRAINING THE LEFT-HAND CONTENT ON EXTRA LARGE SCREENS%>
+			<div class="xl:max-w-lg"> 
+				<img class= "mt-6 rounded-lg shadow-xl sm:mt-8 sm:h-64 sm:w-full sm:object-cover sm:object-center lg:hidden" src="https://images.unsplash.com/photo-1544818694-bfc4b9d5d644?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"alt="Detailed image description would go here.">
+				<p class="mt-6 text-gray-600 text-xs uppercase font-semibold tracking-wide "><%= "#{@listing.max_guests} seats still available" %></p>
+				<h1 class="font-semibold text-4xl"><%= @listing.title %></h1>
+				<p><%= @listing.description %></p>
+				<p><%= "Only $#{@listing.price}" %></p>
+			</div>	
 			<div>
-			<%= image_tag @listing.picture if @listing.picture.attached? %>
+				<%= image_tag @listing.picture if @listing.picture.attached? %>
 			</div>
 			<div class="mt-4 sm:mt-6">
-				<a class="inline-block px-5 py-3 rounded-lg shadow-lg bg-purple-500 hover:bg-purple-400 focus:outline-none focus:shadow-outline text-sm text-white uppercase tracking-wider font-semibold sm:text-base"><%= link_to 'Reserve your seat', new_booking_path(listing: @listing)  %></a>
+				<div class="inline-block px-5 py-3 rounded-lg shadow-lg bg-purple-500 hover:bg-purple-400 focus:outline-none focus:shadow-outline text-sm text-white uppercase tracking-wider font-semibold sm:text-base"><%= link_to 'Reserve your seat', new_booking_path(listing: @listing)  %></div>
 			</div>	
-		</div>		
 
-	</div>
-
-	<%# SECOND CONTAINER DIV. IT'S HIDDEN EXCEPT ON LARGE SCREEENS %>
-		<div class="hidden lg:block lg:w-1/2 lg:relative">
-			<img class="absolute inset-0 h-full w-full object-cover object-center " src="https://images.unsplash.com/photo-1544818694-bfc4b9d5d644?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="Detailed image description would go here.">
+		
 		</div>
 
-
-
-
-
+		<%# SECOND CONTAINER DIV. IT'S HIDDEN EXCEPT ON LARGE SCREEENS %>
+			<div class="hidden lg:block lg:w-1/2 lg:relative lg:mr-12 lg:mt-12 lg:-ml-8">
+				<img class="absolute inset-0 h-full w-full rounded-lg shadow-lg object-cover object-center overflow-hidden " src="https://images.unsplash.com/photo-1544818694-bfc4b9d5d644?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"alt="Detailed image description would go here.">
+			</div>
+	</div>
 </div>
-
-
-<%= link_to 'All listings', listings_path %>
-
-<%= render 'listings/shared', listing: @listing %> 
 
 
