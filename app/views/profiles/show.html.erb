@@ -1,34 +1,54 @@
-<p>
+
+
+<div class="max-w-4xl mx-auto">
+	<div class="flex justify-between -mx-2 overflow-hidden">
+		<div class="flex flex-col my-2 px-2 w-1/2 overlow-hidden">
+			<h1 class="px-4 py-2 m-2"><%= "Welcome #{@profile.first_name}" %></h1>
+			<h4 class="px-4 py-2 m-2">Joined in 2019</h1>
+		</div>
+		<div class="flex content-end my-2 px-2">
+			<img class="w-full object-contain" src=https://lh3.googleusercontent.com/pHblR3bZeseeY4OM-MVwktFFMu_0lUOeb6SdA9Fm5s7zcShLytseISsln41956bQG1GEGQ=s85>
+		</div>
+	</div>
+
+	<%# FORM FOR RECEIVING USER'S DATA GOES HERE%>
+	<p>
   <strong>First name:</strong>
   <%= @profile.first_name %>
-</p>
+  </p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @profile.last_name %>
-</p>
+  <p>
+    <strong>Last name:</strong>
+    <%= @profile.last_name %>
+  </p>
 
 
-<p>
-  <strong>About:</strong>
-  <%= @profile.about %>
-</p>
+  <p>
+    <strong>About:</strong>
+    <%= @profile.about %>
+  </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @profile.user.email %>
-</p>
+  <p>
+    <strong>User:</strong>
+    <%= @profile.user.email %>
+  </p>
 
-<h1>
-  <strong>Upcoming events:</strong>
-</h1>
-<div>
-  <% @listings.each do |listing| %>
-    <p><%= listing.title %></p>
-  <% end %>
-</div>
+  <h1>
+    <strong>Upcoming events:</strong>
+  </h1>
+  <div>
+    <% @listings.each do |listing| %>
+      <p><%= listing.title %></p>
+    <% end %>
+  </div>
 
-<div>
-  <%= link_to 'Edit', edit_profile_path(@profile) %> |
-  <%= link_to 'Back', profiles_path %>
-</div>
+  <div>
+    <%= link_to 'Edit', edit_profile_path(@profile) %> |
+    <%= link_to 'Back', profiles_path %>
+  </div>
+
+</div>	
+
+
+
+
