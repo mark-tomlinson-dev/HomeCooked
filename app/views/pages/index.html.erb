@@ -4,7 +4,7 @@
 		<div class="px-8 py-12 max-w-md mx-auto sm:max-w-xl lg:max-w-full lg:mx-8 lg:w-1/2 lg:py-24 lg:px-12">
 			<%# THIS DIV IS FOR CONSTRAINING THE LEFT-HAND CONTENT ON EXTRA LARGE SCREENS%>
 			<div class="xl:max-w-lg"> 
-				<img class="mt-6 rounded-lg shadow-xl sm:mt-8 sm:h-64 sm:w-full sm:object-cover sm:object-center lg:hidden" src="https://images.unsplash.com/photo-1528061019198-c2391f414bec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Detailed image description would go here.">
+				<img class="mt-6 rounded-lg shadow-xl  sm:mt-8 sm:h-64 sm:w-full sm:object-cover sm:object-center lg:hidden" src="https://images.unsplash.com/photo-1528061019198-c2391f414bec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Detailed image description would go here.">
 				<h1 class="mt-6 text-2xl font-bold text-gray-900 leading-tight sm:mt-8 sm:text-4xl lg:text-3xl xl:text-4xl">Lorem ipsum<br class="hidden lg:inline"><span class="text-purple-500">
 				More lorem lorem ipusm</span>
 				</h1>
@@ -15,25 +15,25 @@
 			</div>
 		</div>
 
-		<%# SECOND CONTAINER DIV. IT'S HIDDEN EXCEPT ON LARGE SCREEENS %>
+		<%# SECOND CONTAINER DIV. IT'S HIDDEN ON MOBILE AND TABLET %>
 			<div class="hidden lg:block lg:w-1/2 lg:relative lg:mr-12 lg:mt-12 lg:-ml-8">
-				<img class="absolute inset-0 h-full w-full rounded-lg shadow-lg object-cover object-center overflow-hidden " src="https://images.unsplash.com/photo-1528061019198-c2391f414bec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Detailed image description would go here.">
+				<img class="absolute inset-0 h-full w-full rounded-lg shadow-lg object-cover object-center overflow-hidden" src="https://images.unsplash.com/photo-1528061019198-c2391f414bec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Detailed image description would go here.">
 			</div>
 	</div>
 
-	<div class="bg-gray-100">
+	<div class="bg-gray-200">
 		<%# THIS IS WHAT IS SETTING THE WIDTH - I.E. IT'S THE CONTENT WRAPPER%>
-		<div class="max-w-lg mt-24 sm:max-w-xl lg:max-w-6xl mx-auto py-6">
+		<div class="max-w-lg mt-24 sm:max-w-xl md:max-w-4xl lg:max-w-6xl mx-auto py-6">
 			<%# INDIVIDUAL CARD WRAPPER/CONTAINER%>
-			<div class="flex flex-wrap p-4 -mx-4">
+			<div class="flex flex-wrap justify-between p-4 -mx-4">
 				<%# THE CARD ITSELF %>
 				<% @listings.each do |listing| %>
-					<div class="mt-6 w-full px-4 lg:w-1/2 xl:w-1/3">
-						<div class="flex flex-col items-center rounded-lg bg-white shadow-lg overflow-hidden">
+					<div class="flex flex-grow flex-shrink mt-12 w-full px-6 sm:w-1/2 md:w-1/2 lg:w-1/3">
+						<div class="rounded-lg bg-white shadow-lg overflow-hidden">
 							<img class="w-full flex-shrink-0 object-cover" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="description">
 							<div class="w-full">
 								<h2 class="text-xl text-gray-900 px-6 py-4"><%= listing.title %></h2>
-								<div class="px-6 py-4">
+								<div class="flex-1 px-6 py-4">
 									<p class="text-gray-600"><%= listing.description %></p>
 									<h3 class="text-lg font-semibold text-gray-800"><%= listing.date %></h3>
 									<p class="text-gray-600"><%= "#{listing.max_guests} seats left at the table" %></p>
@@ -47,4 +47,46 @@
 		</div>
 	</div>
 </div>
+
+<div class="flex h-screen bg-gray-200 p-4">
+  <div class="sm:max-w-xl md:max-w-2xl w-full m-auto">
+    <div class="flex items-stretch bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-indigo-500 sm:border-0">
+      <div class="flex hidden overflow-hidden relative sm:block w-5/12 md:w-6/12 bg-gray-600 text-gray-300 py-4 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/xJ2tjuUHD9M/300x300')"> 
+        <div class="flex-1 absolute bottom-0 text-white p-10">
+          <h3 class="text-4xl font-bold inline-block">Login</h3>
+          <p class="text-gray-500 whitespace-no-wrap">
+            Welcome back!
+          </p>
+        </div>
+        <svg class="absolute animate h-full w-4/12 sm:w-2/12 right-0 inset-y-0 fill-current text-white" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <polygon points="0,0 100,100 100,0">
+        </svg>
+      </div>
+      <div class="flex-1 p-6 sm:p-10 sm:py-12">
+        <h3 class="text-xl text-gray-700 font-bold mb-6">
+
+          Login <span class="text-gray-400 font-light">to your account</span></h3>
+
+        <input type="text" class="px-3 w-full py-2 bg-gray-200 border border-gray-200 rounded focus:border-gray-400 focus:outline-none focus:bg-white mb-4" placeholder="Username">
+        <input type="password" class="px-3 w-full py-2 bg-gray-200 border border-gray-200 rounded focus:border-gray-400 focus:outline-none focus:bg-white mb-4" placeholder="Password">
+        
+        <div class="flex flex-wrap items-center">
+          <div class="w-full sm:flex-1">
+            <input type="submit" value="Login" class="w-full sm:w-auto bg-indigo-500 text-indigo-100 px-6 py-2 rounded hover:bg-indigo-600 focus:outline-none cursor-pointer">
+          </div>
+          <div class="text-sm text-gray-500 hover:text-gray-700 pt-4 sm:p-0">
+            <a href="#">Forgot password?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer class='w-full text-center border-t border-grey p-4 pin-b'>
+		This is our footer
+</footer>
+
+
 

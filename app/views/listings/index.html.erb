@@ -12,7 +12,7 @@
 							<h2 class="text-xl text-gray-900 px-6 py-4"><%= listing.title %></h2>
 							<div class="px-6 py-4">
 								<p class="text-gray-600"><%= listing.description %></p>
-								<h3 class="text-lg font-semibold text-gray-800"><%= listing.date.strftime("%A, %d %b %Y %l:%M %p") %></h3>
+								<h3 class="text-lg font-semibold text-gray-800"><%# listing.date.strftime("%A, %d %b %Y %l:%M %p") %></h3>
 								<p class="text-gray-600"><%= "#{listing.max_guests} seats left at the table" %></p>
 								<p class="text-indigo-500 font-semibold text-sm"><%= "$#{listing.price}" %></p>
 							</div>

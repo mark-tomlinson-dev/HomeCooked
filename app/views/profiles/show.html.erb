@@ -1,54 +1,43 @@
-
-
-<div class="max-w-4xl mx-auto">
-	<div class="flex justify-between -mx-2 overflow-hidden">
-		<div class="flex flex-col my-2 px-2 w-1/2 overlow-hidden">
-			<h1 class="px-4 py-2 m-2"><%= "Welcome #{@profile.first_name}" %></h1>
-			<h4 class="px-4 py-2 m-2">Joined in 2019</h1>
+<div class="bg-white">
+	<div class="border bg-white flex">
+		<%# THIS IS THE WRAPPER/CONTAINER FOR LEFT-HAND CONTENT %>
+		<div class="border px-8 py-12 max-w-md mx-auto sm:max-w-xl lg:max-w-full lg:mx-8 lg:w-1/2 lg:py-24 lg:px-12">
+			<%# THIS DIV IS FOR CONSTRAINING THE LEFT-HAND CONTENT ON EXTRA LARGE SCREENS%>
+			<div class="xl:max-w-lg"> 
+				<img class="mt-6 rounded-lg shadow-xl sm:mt-8 sm:h-64 sm:w-full sm:object-cover sm:object-center lg:hidden" src=https://lh3.googleusercontent.com/pHblR3bZeseeY4OM-MVwktFFMu_0lUOeb6SdA9Fm5s7zcShLytseISsln41956bQG1GEGQ=s85 alt="Detailed image description would go here.">
+        <%= link_to "Update photo" %>
+				<h1 class="mt-6 text-2xl font-bold text-gray-900 leading-tight sm:mt-8 sm:text-4xl lg:text-3xl xl:text-4xl">
+        <%= "Welcome #{@current_user.first_name}!" %>
+				</h1>
+				<p class="mt-2 text-gray-600 sm:mt-4 sm:text-xl"><%= @profile.about %></p>
+				<div class="mt-4 sm:mt-6">
+					<div class="inline-block px-5 py-3 rounded-lg shadow-lg bg-purple-500 hover:bg-purple-400 focus:outline-none focus:shadow-outline text-sm text-white uppercase tracking-wider font-semibold sm:text-base"><%= link_to 'Edit profile', edit_profile_path(@profile) %></div>
+				</div>
+			</div>
 		</div>
-		<div class="flex content-end my-2 px-2">
-			<img class="w-full object-contain" src=https://lh3.googleusercontent.com/pHblR3bZeseeY4OM-MVwktFFMu_0lUOeb6SdA9Fm5s7zcShLytseISsln41956bQG1GEGQ=s85>
-		</div>
-	</div>
 
-	<%# FORM FOR RECEIVING USER'S DATA GOES HERE%>
-	<p>
-  <strong>First name:</strong>
-  <%= @profile.first_name %>
-  </p>
+		<%# SECOND CONTAINER DIV. IT'S HIDDEN EXCEPT ON LARGE SCREEENS %>
+			<div class="hidden lg:block lg:w-1/2 lg:relative lg:mr-12 lg:mt-12 lg:-ml-8">
+        <img class="absolute inset-0 h-full w-full rounded-lg shadow-lg object-cover object-center overflow-hidden" src=https://lh3.googleusercontent.com/pHblR3bZeseeY4OM-MVwktFFMu_0lUOeb6SdA9Fm5s7zcShLytseISsln41956bQG1GEGQ=s85 alt="Detailed image description would go here.">
+        <%= link_to "Update photo" %>
+        <h1 class="mt-6 text-2xl font-bold text-gray-900 leading-tight sm:mt-8 sm:text-4xl lg:text-3xl xl:text-4xl">
+        <%= "Welcome #{@current_user.first_name}!" %>
+        </h1>
+        <p class="mt-2 text-gray-600 sm:mt-4 sm:text-xl"><%= @profile.about %></p>
+        <div class="mt-4 sm:mt-6">
+          <div class="inline-block px-5 py-3 rounded-lg shadow-lg bg-purple-500 hover:bg-purple-400 focus:outline-none focus:shadow-outline text-sm text-white uppercase tracking-wider font-semibold sm:text-base"><%= link_to "Find a table", listings_path  %></div>
+        </div>
 
-  <p>
-    <strong>Last name:</strong>
-    <%= @profile.last_name %>
-  </p>
+			</div>
+  </div>   
+</div>
 
 
-  <p>
-    <strong>About:</strong>
-    <%= @profile.about %>
-  </p>
 
-  <p>
-    <strong>User:</strong>
-    <%= @profile.user.email %>
-  </p>
 
-  <h1>
-    <strong>Upcoming events:</strong>
-  </h1>
-  <div>
-    <% @listings.each do |listing| %>
-      <p><%= listing.title %></p>
-    <% end %>
-  </div>
 
-  <div>
-    <%= link_to 'Edit', edit_profile_path(@profile) %>
-    <%= link_to 'Delete account', @profile, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <%= link_to 'Back', profiles_path %>
-  </div>
 
-</div>	
+
 
 
 
