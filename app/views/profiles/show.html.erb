@@ -43,7 +43,8 @@
   </div>
 
   <div>
-    <%= link_to 'Edit', edit_profile_path(@profile) %> |
+    <%= link_to 'Edit', edit_profile_path(@profile) %>
+    <%= link_to 'Delete account', @profile, method: :delete, data: { confirm: 'Are you sure?' } %>
     <%= link_to 'Back', profiles_path %>
   </div>
 

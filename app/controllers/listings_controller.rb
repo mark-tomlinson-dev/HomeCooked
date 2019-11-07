@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
   
   def index
@@ -9,7 +10,11 @@ class ListingsController < ApplicationController
   end
 
   def new
-    @listing = Listing.new
+    if current_user.is_host == false
+      redirect_to root_path, notice: "I'm sorry, only hosts can create events!"
+    else 
+      @listing = Listing.new
+    end
   end
 
   def edit   
@@ -23,7 +28,7 @@ class ListingsController < ApplicationController
       redirect_to @listing, notice: "Event created successfully!"
     else
       render :new 
-    end
+    end 
   end
 
   def update

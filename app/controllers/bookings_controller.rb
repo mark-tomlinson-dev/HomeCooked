@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
   
+
   def index
     @bookings = current_user.bookings.all
   end
@@ -31,8 +32,12 @@ class BookingsController < ApplicationController
 end
 
   def new
-    @listing = Listing.find(params[:listing])
-    @booking = @listing.bookings.new(user: current_user)
+    if current_user.is_host == true
+      redirect_to root_path, notice: "No need to reserve a seat, you are the host of this event!"
+    else
+      @listing = Listing.find(params[:listing])
+      @booking = @listing.bookings.new(user: current_user)
+    end
   end
 
   def edit   
