@@ -46,7 +46,11 @@ class ProfilesController < ApplicationController
   private
 
   def set_profile
-    @profile = Profile.find(params[:id])
+    if current_user.profile == nil
+      redirect_to root_path, notice: "You haven't created a profile yet!"
+    else
+      @profile = Profile.find(params[:id])
+    end 
   end 
 
   def profile_params

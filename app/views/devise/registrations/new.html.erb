@@ -5,6 +5,11 @@
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="mb-6">
+        <%= f.label :first_name, "Name", class:"label block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.text_field :first_name, class: "input appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight" %>
+      </div>
+
+      <div class="mb-6">
         <%= f.label :email, class:"label block text-gray-700 text-sm font-bold mb-2" %>
         <%= f.email_field :email, autocomplete: "email", class:"input appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight" %>
       </div>

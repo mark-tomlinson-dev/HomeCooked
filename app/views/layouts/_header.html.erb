@@ -12,7 +12,7 @@
     <% if current_user %>
     <div class="text-sm lg:flex-grow block mt-4 lg:inline-block lg:mt-0 text-gray-900 hover:text-pink-600 mr-4">
       <div class="block mt-4 lg:inline-block lg:mt-0 text-gray-900 hover:text-pink-600 mr-4">
-        <%= "Hello #{current_user.email}" %>
+        <%= "Hello #{current_user.first_name}!" %>
       </div>
       <div class="block mt-4 lg:inline-block lg:mt-0 text-gray-900 hover:text-pink-600 mr-4"><%= link_to "Log out", destroy_user_session_path, method: :delete %></div>
       <div class="block mt-4 lg:inline-block lg:mt-0 text-gray-900 hover:text-pink-600 mr-4"><%= link_to "Profile", profile_path(current_user) %></div>

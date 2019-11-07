@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
     )
 
     @session_id = session.id
-end
+  end
 
   def new
     if current_user.is_host == true
