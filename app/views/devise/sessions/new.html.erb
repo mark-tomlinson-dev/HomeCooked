@@ -1,28 +1,48 @@
-<div class="w-full max-w-md mx-auto my-8">
-  <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
+   
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="mb-6">
-        <%= f.label :email, class: "label block text-gray-700 text-sm font-bold mb-2" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight" %>
-      </div>
+      <div class="flex h-screen bg-gray-200 p-4">
+        <div class="sm:max-w-xl md:max-w-2xl w-full m-auto">
+          <div class="flex items-stretch bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-indigo-500 sm:border-0">
+            <div class="flex hidden overflow-hidden relative sm:block w-5/12 md:w-6/12 bg-gray-600 text-gray-300 py-4 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/xJ2tjuUHD9M/300x300')"> 
+              <div class="flex-1 absolute bottom-0 text-white p-10">
+                <h3 class="text-4xl font-bold inline-block">Login</h3>
+                <p class="text-gray-500 whitespace-no-wrap">
+                  Welcome back!
+                </p>
+              </div>
+              <svg class="absolute animate h-full w-4/12 sm:w-2/12 right-0 inset-y-0 fill-current text-white" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                  <polygon points="0,0 100,100 100,0">
+              </svg>
+            </div>
+            <div class="flex-1 p-6 sm:p-10 sm:py-12">
+              <h3 class="text-xl text-gray-700 font-bold mb-6">
 
-      <div class="mb-6">
-        <%= f.label :password, class: "label block text-gray-700 text-sm font-bold mb-2" %>
-        <%= f.password_field :password, autocomplete: "current-password", class: "input appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight" %>
-      </div>
+                Login <span class="text-gray-400 font-light">to your account</span></h3>
+              
+              <div>
+                <%= f.email_field :email, placeholder: "Email", autofocus: true, autocomplete: "email",  class: "input px-3 w-full py-2 bg-gray-200 border border-gray-200 rounded focus:border-gray-400 focus:outline-none focus:bg-white mb-4" %>
+              </div>
 
-      <% if devise_mapping.rememberable? %>
-        <div class="mb-6">
-          <%= f.check_box :remember_me, class: "input"  %>
-          <%= f.label :remember_me, class: "label text-gray-700 text-sm font-bold mb-2" %>
+              <div>
+                <%= f.password_field :password, placeholder: "Password", autocomplete: "current-password", class: "input px-3 w-full py-2 bg-gray-200 border border-gray-200 rounded focus:border-gray-400 focus:outline-none focus:bg-white mb-4" %>
+              </div>
+              
+              <div class="flex flex-wrap items-center">
+                <div class="action w-full sm:flex-1">
+                  <%= f.submit "Log in", class: "w-full sm:w-auto bg-indigo-500 text-indigo-100 px-6 py-2 rounded hover:bg-indigo-600 focus:outline-none cursor-pointer" %>
+                </div>
+                
+                <% if devise_mapping.rememberable? %>
+                  <div class="text-sm text-gray-500 hover:text-gray-700 pt-4 sm:p-0">
+                    <%= f.check_box :remember_me, class: "input"  %>
+                    <%= f.label :remember_me, class: "label text-gray-700 text-sm font-bold mb-2" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
-      <% end %>
-
-      <div class="actions">
-        <%= f.submit "Log in", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
       </div>
-    <% end %>
+    <% end  %>
 
-  </div>
-</div>
