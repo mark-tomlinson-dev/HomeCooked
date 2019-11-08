@@ -1,22 +1,23 @@
-<div class="bg-white">
-	<div class="flex max-w-lg mt-24 sm:max-w-xl md:max-w-4xl lg:max-w-4xl mx-auto py-6">
-
-		<div class="w-full flex flex-wrap overflow-hidden">
-
-			<div class="flex flex-col items-center overflow-hidden lg:my-3 lg:px-2 lg:w-1/3">
-				<div class="">
-					<% if @profile.picture.attached? %>
-						<%= image_tag @profile.picture, height: 100, width: 100, class:"rounded-full" %>
-					<% else %>
-						<%= image_tag "generic_avatar.png", height: 100, width: 100, class:"rounded-full" %>
-					<% end %>
-				</div>
+<div class="h-screen bg-gray-200 p-4">
+	<div class="max-w-lg mt-24 sm:max-w-xl md:max-w-2xl lg:max-w-2xl mx-auto py-2">
+		<div class="bg-white flex rounded-lg shadow-lg overflow-hidden border-t-4 border-indigo-300 sm:border-0">
+			<div class="p-4">
+				<% if @profile.picture.attached? %>
+					<%= image_tag @profile.picture, height: 100, width: 100, class:"rounded-full" %>
+				<% else %>
+					<%= image_tag "generic_avatar.png", height: 100, width: 100, class:"rounded-full" %>
+				<% end %>
 			</div>
 
-			<div class="w-full overflow-hidden lg:w-2/3">
-				<h1 class="text-2xl font-semibold text-gray-900 leading-tight sm:mt-8 sm:text-4xl lg:text-3xl xl:text-4xl"><%= "Welcome #{@current_user.first_name}!" %></h1>
-				<p><%= @current_user.profile.about %>
-				<li class="list-none">
+
+			<div class="bg-white flex justify-between flex-col w-full">
+				<h3 class="text-xl text-gray-700 font-bold p-4">
+
+          Welcome <span class="text-indigo-500 font-bold"><%= "#{@current_user.first_name}!" %></span>
+				
+				</h3>
+				<p class="text-gray-700 p-4"><%= @current_user.profile.about %>
+				<li class="text-gray-700 list-none underline p-4">
 					<%= link_to "Edit profile", edit_profile_path(@profile) %>
 				</li>
 			</div>
@@ -24,28 +25,33 @@
 		</div>
 	</div>
 
-	<div>
-		<h1 class="text-4xl text-semibold">Upcoming events</h1>
-		<% if current_user.bookings.empty? %>
-			<p><%= "You have no upcoming events" %><p>
-		<% else  %>
-		<% @bookings.each do |booking| %>
-			<div class="mt-6 w-full px-4 lg:w-1/3 xl:w-1/4">
-				<div class="flex flex-grow flex-col rounded-lg border bg-white shadow-2xl overflow-hidden">
-					<img class="w-full flex-shrink-0 object-cover rounded-lg" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="description">
-					<div class="w-full">
-						<h2 class="text-xl text-gray-900 px-6 py-4"><%= booking.listing.title %></h2>
-						<div class="px-6 py-4">
-							<p class="text-gray-600"><%= booking.listing.description %></p>
-							<h3 class="text-lg font-semibold text-gray-800"><%# listing.date.strftime("%A, %d %b %Y %l:%M %p") %></h3>
-							<p class="text-gray-600"><%= "#{booking.listing.max_guests} seats left at the table" %></p>
-							<p class="text-indigo-500 font-semibold text-sm"><%= "$#{booking.listing.price}" %></p>
+	<div class="max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-2xl mx-auto py-2">
+		<h1 class="text-gray-700 text-xl">Upcoming events</h1>
+	</div>	
+
+	<div class="max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-2xl mx-auto py-2">
+			<% if current_user.bookings.empty? %>
+			<p class="text-gray-700"><%= "You have no upcoming events" %><p>
+			<% else  %>
+			<% @bookings.each do |booking| %>
+			<div class="bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-indigo-500 sm:border-0">
+				<div class="mt-6 w-full px-4 lg:w-1/3 xl:w-1/4">
+					<div class="flex flex-grow flex-col rounded-lg border bg-white shadow-2xl overflow-hidden">
+						<img class="w-full flex-shrink-0 object-cover rounded-lg" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="description">
+						<div class="w-full">
+							<h2 class="text-xl text-gray-900 px-6 py-4"><%= booking.listing.title %></h2>
+							<div class="px-6 py-4">
+								<p class="text-gray-600"><%= booking.listing.description %></p>
+								<h3 class="text-lg font-semibold text-gray-800"><%# listing.date.strftime("%A, %d %b %Y %l:%M %p") %></h3>
+								<p class="text-gray-600"><%= "#{booking.listing.max_guests} seats left at the table" %></p>
+								<p class="text-indigo-500 font-semibold text-sm"><%= "$#{booking.listing.price}" %></p>
+							</div>
 						</div>
 					</div>
+					<% end  %>
 				</div>
-				<% end  %>
-			</div>
-		<% end %>
+			<% end %>
+		</div>	
 	</div>
 
 </div>	
