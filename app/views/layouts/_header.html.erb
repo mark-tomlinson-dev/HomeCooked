@@ -14,13 +14,14 @@
       <div class="block mt-4 lg:inline-block lg:mt-0 text-gray-900 hover:text-pink-600 mr-4">
         <%= link_to "Log out", destroy_user_session_path, method: :delete %>
       </div>
+      <% if current_user.profile == nil%>
       <div class="block mt-4 lg:inline-block lg:mt-0 text-gray-900 hover:text-pink-600 mr-4">
         <%= link_to "Create profile", new_profile_path %>
       </div>
-      <% if current_user.profile != nil %>
-      <div class="block mt-4 lg:inline-block lg:mt-0 text-gray-900 hover:text-pink-600 mr-4">
-        <%= link_to "Profile", profile_path(current_user.profile.id) %>
-      </div>
+      <% elsif current_user.profile != nil %>
+        <div class="block mt-4 lg:inline-block lg:mt-0 text-gray-900 hover:text-pink-600 mr-4">
+          <%= link_to "Profile", profile_path(current_user.profile.id) %>
+        </div>
       <% end %>
 		<% else %>
     <div class="text-sm lg:flex-grow block mt-4 lg:inline-block lg:mt-0 text-gray-900 hover:text-pink-600 mr-4">
