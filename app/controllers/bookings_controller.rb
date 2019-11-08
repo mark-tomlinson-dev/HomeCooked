@@ -33,12 +33,13 @@ class BookingsController < ApplicationController
 
   def new
     if current_user.is_host == true
-      redirect_to root_path, notice: "No need to reserve a seat, you are the host of this event!"
-    else
+      redirect_to root_path, notice: "No need to reserve a seat, you are the host of this event!"      
+    else  
       @listing = Listing.find(params[:listing])
       @booking = @listing.bookings.new(user: current_user)
-    end
+    end 
   end
+
 
   def edit   
   end

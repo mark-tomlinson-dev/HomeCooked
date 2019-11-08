@@ -12,6 +12,7 @@ class ProfilesController < ApplicationController
   def show
     @profile = current_user.profile
     @listings = current_user.listings
+    @bookings = current_user.bookings
   end
 
   def new

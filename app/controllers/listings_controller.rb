@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
   
   def index
@@ -7,6 +7,9 @@ class ListingsController < ApplicationController
   end
 
   def show
+    if current_user.profile == nil
+      redirect_to new_profile_path
+    end
   end
 
   def new
@@ -18,7 +21,7 @@ class ListingsController < ApplicationController
     end
   end
 
-  def edit   
+  def edit
   end
 
 

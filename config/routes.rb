@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :controllers => { registrations: 'registrations' }
+  devise_for :users
   get "/", to: "pages#index", as: "root"
   get "/payments/success", to: "payments#success"
   
