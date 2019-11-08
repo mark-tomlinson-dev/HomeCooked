@@ -1,44 +1,38 @@
 <div class="bg-white">
-	<div class="border bg-white flex">
-		<%# THIS IS THE WRAPPER/CONTAINER FOR LEFT-HAND CONTENT %>
-		<div class="border px-8 py-12 max-w-md mx-auto sm:max-w-xl lg:max-w-full lg:mx-8 lg:w-1/2 lg:py-24 lg:px-12">
-			<%# THIS DIV IS FOR CONSTRAINING THE LEFT-HAND CONTENT ON EXTRA LARGE SCREENS%>
-			<div class="xl:max-w-lg"> 
-				<img class="mt-6 rounded-lg shadow-xl sm:mt-8 sm:h-64 sm:w-full sm:object-cover sm:object-center lg:hidden" src=https://lh3.googleusercontent.com/pHblR3bZeseeY4OM-MVwktFFMu_0lUOeb6SdA9Fm5s7zcShLytseISsln41956bQG1GEGQ=s85 alt="Detailed image description would go here.">
-        <%= link_to "Update photo" %>
-				<h1 class="mt-6 text-2xl font-bold text-gray-900 leading-tight sm:mt-8 sm:text-4xl lg:text-3xl xl:text-4xl">
-        <%= "Welcome #{@current_user.first_name}!" %>
-				</h1>
-				<p class="mt-2 text-gray-600 sm:mt-4 sm:text-xl"><%= @profile.about %></p>
-				<div class="mt-4 sm:mt-6">
-					<div class="inline-block px-5 py-3 rounded-lg shadow-lg bg-purple-500 hover:bg-purple-400 focus:outline-none focus:shadow-outline text-sm text-white uppercase tracking-wider font-semibold sm:text-base"><%= link_to 'Edit profile', edit_profile_path(@profile) %></div>
+	<div class="flex max-w-lg mt-24 sm:max-w-xl md:max-w-4xl lg:max-w-4xl mx-auto py-6">
+
+		<div class="w-full flex flex-wrap overflow-hidden">
+
+			<div class="flex flex-col items-center overflow-hidden lg:my-3 lg:px-2 lg:w-1/3">
+				<div class="">
+					<img class="object-cover rounded-full h-32 w-32 mt-8" src=https://lh3.googleusercontent.com/pHblR3bZeseeY4OM-MVwktFFMu_0lUOeb6SdA9Fm5s7zcShLytseISsln41956bQG1GEGQ=s85 alt="Detailed image description would go here.">
 				</div>
+				<p class=" text-center">Update photo</p>
+
 			</div>
+
+			<div class="w-full overflow-hidden lg:w-2/3">
+				<h1 class="text-2xl font-semibold text-gray-900 leading-tight sm:mt-8 sm:text-4xl lg:text-3xl xl:text-4xl"><%= "Welcome #{@current_user.first_name}!" %></h1>
+				<p><%= @current_user.profile.about %>
+				<%# @current_user.listings.bookings %>
+				<li class="list-none">
+					<%= link_to "Edit profile", edit_profile_path(@profile) %>
+				</li>
+			</div>
+
 		</div>
+	</div>
 
-		<%# SECOND CONTAINER DIV. IT'S HIDDEN EXCEPT ON LARGE SCREEENS %>
-			<div class="hidden lg:block lg:w-1/2 lg:relative lg:mr-12 lg:mt-12 lg:-ml-8">
-        <img class="absolute inset-0 h-full w-full rounded-lg shadow-lg object-cover object-center overflow-hidden" src=https://lh3.googleusercontent.com/pHblR3bZeseeY4OM-MVwktFFMu_0lUOeb6SdA9Fm5s7zcShLytseISsln41956bQG1GEGQ=s85 alt="Detailed image description would go here.">
-        <%= link_to "Update photo" %>
-        <h1 class="mt-6 text-2xl font-bold text-gray-900 leading-tight sm:mt-8 sm:text-4xl lg:text-3xl xl:text-4xl">
-        <%= "Welcome #{@current_user.first_name}!" %>
-        </h1>
-        <p class="mt-2 text-gray-600 sm:mt-4 sm:text-xl"><%= @profile.about %></p>
-        <div class="mt-4 sm:mt-6">
-          <div class="inline-block px-5 py-3 rounded-lg shadow-lg bg-purple-500 hover:bg-purple-400 focus:outline-none focus:shadow-outline text-sm text-white uppercase tracking-wider font-semibold sm:text-base"><%= link_to "Find a table", listings_path  %></div>
-        </div>
-
-			</div>
-  </div>   
-</div>
+	<div class="flex max-w-lg mt-24 sm:max-w-xl md:max-w-4xl lg:max-w-4xl mx-auto py-6">
 
 
 
 
 
+	</div>
 
 
 
 
 
-
+</div>	
