@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
   
   def index
@@ -7,9 +7,6 @@ class ListingsController < ApplicationController
   end
 
   def show
-    if current_user.profile == nil
-      redirect_to new_profile_path
-    end
   end
 
   def new
@@ -36,8 +33,6 @@ class ListingsController < ApplicationController
   end
 
   def update
-    # Authorise hosts to only edit their own events - but need to redirect away from error
-    @listing = current_user.listing
     if @listing.update(listing_params)
       redirect_to @listing, notice: "Event was successfully updated!"
     else
@@ -46,8 +41,6 @@ class ListingsController < ApplicationController
   end 
 
   def destroy
-    # Authorise hosts to only destroy their own events
-    @listing = current_user.listing
     @listing.destroy
 
     redirect_to root_path, notice: "Your event was deleted"
@@ -60,7 +53,7 @@ class ListingsController < ApplicationController
   end 
 
   def listing_params
-    params.require(:listing).permit(:title, :description, :date, :time, :max_guests, :price, :user_id, :picture)
+    params.require(:listing).permit(:title, :description, :location, :date, :max_guests, :price, :user_id, :picture)
   end
 
 end

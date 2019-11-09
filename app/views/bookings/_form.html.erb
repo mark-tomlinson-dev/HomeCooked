@@ -1,7 +1,9 @@
+
+<div class="bg-gray-200 p-32">
   <%= form_with(model: @booking, local: true) do |form| %>
     <% if booking.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+        <h2><%= pluralize(booking.errors.count, "error") %> prohibited this listing from being saved:</h2>
         <ul>
         <% booking.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -10,19 +12,39 @@
       </div>
     <% end %>
 
-    <div class="mb-6">
-      <%= "$#{@listing.price} total" %>
-    </div>
-    <div class="mb-6">
-			<%= @listing.date.strftime("%d/%m/%Y at %-l:%M%P") %>
-    </div>
-    <%= form.hidden_field(:listing_id, value: @listing.id) %>
-    <div class="mb-6">
-      <%= form.label :number_of_guests, class: "label block text-gray-700 text-sm font-bold" %></br>
-      <%= form.text_area :number_of_guests, class:"input appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight" %>
+    <div class="flex bg-gray-200 p-32">
+      <div class="sm:max-w-xl md:max-w-4xl lg:max-w-2xl w-full m-auto">
+        <div class="flex items-stretch bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-indigo-500 sm:border-0">
+          <div class="flex hidden overflow-hidden relative sm:block w-5/12 md:w-6/12 bg-gray-600 text-gray-300 py-4 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1520875296916-67d37f48d263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')"> 
+            <div class="flex-1 text-white p-10">
+              <h4 class="text-4xl font-semibold leading-tight">Just one more thing...</h4>
+            </div>
+            <svg class="absolute animate h-full w-4/12 sm:w-2/12 right-0 inset-y-0 fill-current text-white" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <polygon points="0,0 100,100 100,0">
+            </svg>
+          </div>
+          <div class="flex-1 p-6 sm:p-10 sm:py-12">
+            <h3 class="text-xl text-gray-700 font-bold mb-6">
+
+            <span class="text-gray-400 font-light"></span></h3>
+            
+            <%= form.hidden_field(:listing_id, value: @listing.id) %>
+            <div>
+             <p class="label text-gray-700 text-sm font-semibold leading-tight -mb-2">How many of you are attending?</p><br>
+             <%= form.number_field :number_of_guests, class:"input px-2 w-1/4 py-1 bg-gray-200 border border-gray-200 rounded focus:border-gray-400 focus:outline-none focus:bg-white mb-4" %>
+            </div>
+            
+            <div class="flex flex-wrap items-center">
+              <div class="action w-full sm:flex-1">
+                <%= form.submit "Submit", class: "sm:w-auto bg-indigo-500 px-6 py-2 rounded hover:bg-indigo-400 shadow-lg focus:outline-none cursor-pointer text-sm text-white uppercase tracking-wider font-semibold sm:text-base" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="mb-6">
-      <%= form.submit "Create booking", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
-    </div>
   <% end %>
+</div>  
+
+

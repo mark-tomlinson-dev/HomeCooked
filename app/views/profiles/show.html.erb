@@ -32,12 +32,13 @@
 	</div>	
 
 	<div class="max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-6xl mx-auto py-2">
-		<% if current_user.bookings.empty? %>
+		<% if current_user.bookings.empty? && current_user.is_host == false %>
 		<p class="text-gray-700"><%= "You have no upcoming events" %><p>
-		<% else  %>
+		<% else %>
 		<div class="flex flex-wrap justify-between p-4 -mx-4">
 			<% @bookings.each do |booking| %>
 				<div class="flex mt-12 w-full px-6 sm:w-1/2 md:w-1/2 lg:w-1/3">
+					<%= link_to listing_path(@listings) do %>
 					<div class="rounded-lg bg-white shadow-lg overflow-hidden">
 						<img class="w-full  object-cover" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" alt="description">
 						<div class="p-6">
@@ -47,11 +48,41 @@
 							<p class="mt-4 text-gray-600 text-sm"><span class="text-indigo-500 font-semibold">There are <%= "#{booking.listing.max_guests} seat(s) left "%></span>at the table</p>	
 						</div>
 					</div>
+					<% end %>
 				</div>		
 				<% end  %>
 			</div>
 		<% end %>	
 		</div>
 	</div>
+
+	<div class="max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-6xl mx-auto py-2">
+		<% if current_user.listings.empty? && current_user.is_host == true %>
+		<p class="text-gray-700"><%= "You have no upcoming events" %><p>
+		<% else %>
+		<div class="flex flex-wrap justify-between p-4 -mx-4">
+			<% @listings.each do |listing| %>
+				<div class="flex mt-12 w-full px-6 sm:w-1/2 md:w-1/2 lg:w-1/3">
+					<%= link_to listing_path(listing) do %>
+					<div class="rounded-lg bg-white shadow-lg overflow-hidden">
+						<img class="w-full  object-cover" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" alt="description">
+						<div class="p-6">
+							<p class="text-gray-600 text-xs uppercase font-semibold tracking-wide">15 November, 2019</p>
+							<h4 class="font-semibold text-lg leading-tight truncate"><%= listing.title %></h4>
+							<p class="text-lg font-semibold text-gray-700 mt-1"><%= "$#{listing.price} " %><span class="text-gray-600 text-sm"> / per person</span></p>
+							<p class="mt-4 text-gray-600 text-sm"><span class="text-indigo-500 font-semibold">There are <%= "#{listing.max_guests} seat(s) left "%></span>at the table</p>	
+						</div>
+					</div>
+					<% end %>
+				</div>		
+				<% end  %>
+			</div>
+		<% end %>	
+		</div>
+	</div>
+
+
+
+
 
 </div>	

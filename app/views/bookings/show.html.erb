@@ -1,19 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="flex bg-gray-200 p-32">
+  <div class="sm:max-w-xl md:max-w-4xl lg:max-w-2xl w-full m-auto">
+    <div class="flex items-stretch bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-indigo-500 sm:border-0">
+      <div class="flex hidden overflow-hidden relative sm:block w-5/12 md:w-6/12 bg-gray-600 text-gray-300 py-4 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1520875296916-67d37f48d263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')"> 
+        <div class="flex-1 text-white p-10">
+          <h4 class="text-2xl font-semibold leading-tight"></h4>
+        </div>
+        <svg class="absolute animate h-full w-4/12 sm:w-2/12 right-0 inset-y-0 fill-current text-white" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <polygon points="0,0 100,100 100,0">
+        </svg>
+      </div>
+      <div class="flex-1 p-6 sm:p-10 sm:py-12">
+        <h3 class="text-xl text-gray-700 font-bold mb-6">
 
-<p>
-  <strong>Price:</strong>
-  <%= @booking.listing.price %>
-</p>
+        <span class="text-gray-400 font-light"></span></h3>
+        <div>
+          <p class="label text-gray-700 text-xl font-semibold leading-tight -mb-2">Congratulations! Your booking has been successful 🍜 ✌️</p><br>
+          
 
-<p>
-  <strong>Date:</strong>
-  <%= @booking.listing.date %>
-</p>
+        </div>
+        
+        <div class="flex">
+          <div class="action">
+            <div class="sm:w-auto bg-indigo-500 px-6 py-2 rounded hover:bg-indigo-400 shadow-lg focus:outline-none cursor-pointer text-sm text-white uppercase tracking-wider font-semibold sm:text-base"> 
+              <button data-stripe="payment">
+              PAY NOW <%= number_to_currency(@booking.listing.price) %>
+              </button>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
 
-
-<button data-stripe="payment">
-  Make Payment <%= number_to_currency(@booking.listing.price) %>
-</button>
 
 <script src="https://js.stripe.com/v3/"></script>
 

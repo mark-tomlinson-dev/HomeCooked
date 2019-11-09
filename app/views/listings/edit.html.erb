@@ -1,1 +1,71 @@
-<%= render 'form', listing: @listing  %>
+<div class="bg-gray-200">
+  <%= form_with(model: @listing, local: true) do |form| %>
+    <% if @listing.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+        <ul>
+        <% @listing.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="flex bg-gray-200 p-4 mt-12">
+      <div class="sm:max-w-xl md:max-w-4xl lg:max-w-6xl w-full m-auto">
+        <div class="flex items-stretch bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-indigo-500 sm:border-0">
+          <div class="flex hidden overflow-hidden relative sm:block w-5/12 md:w-6/12 bg-gray-600 text-gray-300 py-4 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1520875296916-67d37f48d263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')"> 
+            <div class="flex-1 text-white p-10">
+              <h3 class="text-4xl font-bold inline-block">Create your event</h3>
+            </div>
+            <svg class="absolute animate h-full w-4/12 sm:w-2/12 right-0 inset-y-0 fill-current text-white" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <polygon points="0,0 100,100 100,0">
+            </svg>
+          </div>
+          <div class="flex-1 p-6 sm:p-10 sm:py-12">
+            <h3 class="text-xl text-gray-700 font-bold mb-6">
+
+            <span class="text-gray-400 font-light"></span></h3>
+            
+            <div>
+              <%= form.text_field :title, placeholder: "Title", autofocus: true, class: "input px-3 w-full py-2 bg-gray-200 border border-gray-200 rounded focus:border-gray-400 focus:outline-none focus:bg-white mb-4" %>
+            </div>
+
+            <div>
+              <%= form.text_area :description, :rows=>5, :cols=>60, placeholder: "Description", autofocus: true, class: "input px-3 w-full py-2 bg-gray-200 border border-gray-200 rounded focus:border-gray-400 focus:outline-none focus:bg-white mb-4" %>
+            </div>
+
+            <div>
+              <%= form.text_field :location, placeholder: "City", autofocus: true, class: "input px-3 w-full py-2 bg-gray-200 border border-gray-200 rounded focus:border-gray-400 focus:outline-none focus:bg-white mb-4" %>
+            </div>
+
+            <div>
+              <%= form.datetime_select :date, autofocus: true, class: "input px-3 w-full py-2 bg-gray-200 border border-gray-200 rounded focus:border-gray-400 focus:outline-none focus:bg-white mb-4" %>
+            </div>
+
+            <div>
+              <%= form.text_field :max_guests, placeholder: "How many seats at your table?", autofocus: true, class: "input px-3 w-full py-2 bg-gray-200 border border-gray-200 rounded focus:border-gray-400 focus:outline-none focus:bg-white mb-4" %>
+            </div>
+
+            <div>
+              <%= form.number_field :price, placeholder: "How much would you like to charge per guest?", autofocus: true, class: "input px-3 w-full py-2 bg-gray-200 border border-gray-200 rounded focus:border-gray-400 focus:outline-none focus:bg-white mb-4" %>
+            </div>
+
+            <div>
+              <%= form.label :picture, "Upload an image", class:"label inline text-gray-700 text-sm font-bold mx-4 mb-2" %>
+              <%= form.file_field :picture,  accept: "image/png,image/gif,image/jpg,image/jpeg", placeholder: "Upload profile picture", class: "input px-3 w-full py-2 bg-gray-200 border border-gray-200 rounded focus:border-gray-400 focus:outline-none focus:bg-white mb-4" %>
+            </div>
+
+            
+            <div class="flex flex-wrap items-center">
+              <div class="action w-full sm:flex-1">
+                <%= form.submit "Edit event", class: "w-full sm:w-auto bg-indigo-500 text-indigo-100 px-6 py-2 rounded hover:bg-indigo-600 focus:outline-none cursor-pointer" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+</div>  
