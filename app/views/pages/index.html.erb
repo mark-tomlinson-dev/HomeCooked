@@ -26,9 +26,9 @@
 			<div class="bg-gray-200 max-w-lg mt-24 sm:max-w-xl md:max-w-4xl lg:max-w-6xl mx-auto py-6">
 				<h2 class="my-8 ml-1 text-2xl text-gray-700 font-semibold">Recommended for you</h2>
 				<%# INDIVIDUAL CARD WRAPPER/CONTAINER%>
-				<div class="bg-gray-200 flex flex-wrap justify-between p-4 -mx-10">
+				<div class="bg-gray-200 flex flex-wrap  p-4 -mx-10">
 					<%# THE CARD ITSELF %>
-					<% @listings[0..5].each do |listing| %>
+					<% @listings[0..2].each do |listing| %>
 						<div class="flex w-full px-6 sm:w-1/2 md:w-1/2 lg:w-1/3">
 							<%= link_to listing_path(listing) do %>
 							<div class="rounded-lg bg-white shadow-lg overflow-hidden">

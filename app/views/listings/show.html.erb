@@ -3,9 +3,9 @@
 		<div class="bg-white flex rounded-lg shadow-lg overflow-hidden border-t-4 border-indigo-300 sm:border-0">
 			<div class="h-64 w-full">
 				<% if @listing.picture.attached? %>
-					<%= image_tag @listing.picture,  class:"object-fit object-center" %>
+					<%= image_tag @listing.picture,  class:"object-cover object-center" %>
 				<% else %>
-					<%= image_tag "generic_avatar.png", class:"object-fit" %>
+					<%= image_tag "generic_avatar.png", class:"object-cover" %>
 				<% end %>
 			</div>
 
