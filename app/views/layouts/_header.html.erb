@@ -1,25 +1,25 @@
-<header class="max-w-6xl flex items-center justify-between mx-auto px-4 py-3 border-b-2">
+<header class="max-w-6xl flex items-center justify-between mx-auto p-4 pt-6 border-b-2">
   <div>
     <li class="text-xl font-semibold list-none"><%= link_to "Home Cooked", root_path %></li>
   </div>
 
   <div class="flex items-center list-none">
   <% if user_signed_in? %>
-    <li class="p-6"><%= link_to "Log out", destroy_user_session_path, method: :delete %><li>
+    <li class="px-6 hover:text-teal-400 tracking-wide"><%= link_to "Log out", destroy_user_session_path, method: :delete %><li>
     <% if current_user.profile == nil%>  
-    <li class="p-6"><%= link_to "Create profile", new_profile_path %></li>
+    <li class="px-6 hover:text-teal-400 tracking-wide"><%= link_to "Create profile", new_profile_path %></li>
     <% elsif current_user.profile != nil && current_user.is_host == true %>
-    <li class="p-6"><%= link_to "View listings", listings_path %></li>
-    <li class="p-6"><%= link_to "Profile", profile_path(current_user.profile.id) %><li>
-    <li class="p-6"><%= link_to "Create event", new_listing_path %></li>
+    <li class="px-6 hover:text-teal-400 tracking-wide"><%= link_to "View events", listings_path %></li>
+    <li class="px-6 hover:text-teal-400 tracking-wide"><%= link_to "Profile", profile_path(current_user.profile.id) %><li>
+    <li class="px-6 hover:text-teal-400 tracking-wide"><%= link_to "Create event", new_listing_path %></li>
     <% elsif current_user.profile != nil && current_user.is_host == false %>
-    <li class="p-6"><%= link_to "View listings", listings_path %></li>
-    <li class="p-6"><%= link_to "Profile", profile_path(current_user.profile.id) %><li>
+    <li class="px-6 hover:text-teal-400 tracking-wide"><%= link_to "View events", listings_path %></li>
+    <li class="px-6 hover:text-teal-400 tracking-wide"><%= link_to "Profile", profile_path(current_user.profile.id) %><li>
     <% end %>
   <% else %>
-    <li class="p-6"><%= link_to "View listings", listings_path %></li>
-    <li class="p-6"><%= link_to "Log in", new_user_session_path %></li>
-    <li class="p-6"><%= link_to "Sign up", new_user_registration_path, class:"inline-block text-sm  px-4 py-2 leading-none border rounded text-gray-900 border-gray-900 hover:border-transparent hover:text-white hover:bg-teal-400 -mt-4 lg:mt-0" %></li>
+    <li class="px-6 hover:text-teal-400 tracking-wide"><%= link_to "View events", listings_path %></li>
+    <li class="px-6 hover:text-teal-400 tracking-wide"><%= link_to "Log in", new_user_session_path %></li>
+    <li class="px-6"><%= link_to "Sign up", new_user_registration_path, class:"inline-block text-sm  px-4 py-2 leading-none border rounded text-gray-900 border-gray-900 hover:border-transparent hover:text-white hover:bg-teal-400 -mt-4 lg:mt-0 uppercase" %></li>
   <% end %>
   </div>
 </header>

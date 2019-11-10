@@ -17,9 +17,11 @@
 				
 				</h3>
 				<p class="text-gray-700 p-4"><%= @current_user.profile.about %>
-				<li class="text-gray-700 list-none underline p-4">
-					<%= link_to "Edit profile", edit_profile_path(@profile) %>
-				</li>
+				<div class="flex flex-wrap items-center">
+					<div class="action w-full sm:flex-1 px-4 pt-2 pb-6">
+						<%= link_to "Edit profile", edit_profile_path(@profile), class: "w-full sm:w-auto bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-400 focus:outline-none cursor-pointer" %>
+					</div>
+				</div>			
 			</div>
 
 		</div>
