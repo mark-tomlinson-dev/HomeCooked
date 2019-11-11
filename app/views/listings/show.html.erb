@@ -29,7 +29,7 @@
 								<div class="sm:w-auto bg-indigo-500 px-6 py-2 rounded hover:bg-indigo-400 shadow-lg focus:outline-none cursor-pointer text-sm text-white uppercase tracking-wider font-semibold sm:text-base"><%= link_to 'Reserve your seat', new_booking_path(listing: @listing)%>
 							</div>
 						</div>
-				<% elsif user_signed_in? && current_user.is_host == true %>
+				<% elsif user_signed_in? && current_user.is_host == true && @listing.user == current_user %>
 					<div class="flex">
 						<div class="action ml-12">
 							<div class="sm:w-auto bg-indigo-500 px-6 py-2 rounded hover:bg-indigo-400 shadow-lg focus:outline-none cursor-pointer text-sm text-white uppercase tracking-wider font-semibold sm:text-base"><%= link_to 'Edit', edit_listing_path %>

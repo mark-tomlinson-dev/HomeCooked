@@ -1,7 +1,8 @@
 class ListingsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
-  
+  before_action :correct_user, only: [:edit, :update, :destroy]
+
   def index
     @listings = Listing.all
   end
@@ -38,6 +39,12 @@ class ListingsController < ApplicationController
     else
       render :edit, alert: "Your event wasn't updated"
     end 
+  end 
+
+  def correct_user
+    if @listing.user != current_user
+      redirect_to root_path
+    end
   end 
 
   def destroy
