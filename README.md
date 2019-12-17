@@ -2,10 +2,6 @@
 
 ## What better way to travel than by eating with the locals?
 
-https://vast-sea-28738.herokuapp.com/
-
-https://github.com/mark-tomlinson-dev/HomeCooked
-
 ![home_page](./docs/Home.png)
 ![cards](./docs/Cards.png)
 ![sign_up](./docs/SignUp.png)
